@@ -1,0 +1,1225 @@
+Classic Timing Analyzer report for finallock
+Mon Jun 17 10:25:06 2019
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'pswdin[2]'
+  7. Clock Setup: 'pswdin[3]'
+  8. Clock Setup: 'pswdin[0]'
+  9. Clock Setup: 'pswdin[1]'
+ 10. Clock Hold: 'pswdin[2]'
+ 11. Clock Hold: 'pswdin[3]'
+ 12. Clock Hold: 'pswdin[0]'
+ 13. Clock Hold: 'pswdin[1]'
+ 14. tsu
+ 15. tco
+ 16. th
+ 17. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                  ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                                    ; From                      ; To                        ; From Clock ; To Clock  ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 2.821 ns                                       ; rw                        ; datastorage:comb_4|ste~7  ; --         ; pswdin[3] ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 14.692 ns                                      ; SIPO:comb_6|out[3]        ; buzzer                    ; pswdin[2]  ; --        ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 2.163 ns                                       ; rw                        ; SIPO:comb_11|out[1]       ; --         ; pswdin[2] ; 0            ;
+; Clock Setup: 'pswdin[1]'     ; N/A                                      ; None          ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; 0            ;
+; Clock Setup: 'pswdin[0]'     ; N/A                                      ; None          ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; 0            ;
+; Clock Setup: 'pswdin[3]'     ; N/A                                      ; None          ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; 0            ;
+; Clock Setup: 'pswdin[2]'     ; N/A                                      ; None          ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; 0            ;
+; Clock Hold: 'pswdin[2]'      ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; 2            ;
+; Clock Hold: 'pswdin[3]'      ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; 2            ;
+; Clock Hold: 'pswdin[0]'      ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; 2            ;
+; Clock Hold: 'pswdin[1]'      ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; 2            ;
+; Total number of failed paths ;                                          ;               ;                                                ;                           ;                           ;            ;           ; 8            ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; pswdin[2]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; pswdin[3]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; pswdin[0]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; pswdin[1]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'pswdin[2]'                                                                                                                                                                                                    ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                      ; To                        ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.159 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~4  ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.816 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~7  ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.803 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~5  ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.781 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[0] ; SIPO:comb_6|out[0]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.646 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~0  ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.643 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~3  ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.634 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~1  ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.606 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[1] ; SIPO:comb_6|out[0]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.570 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[3] ; SIPO:comb_6|out[0]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.484 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~2  ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.430 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~6  ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.355 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~11 ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.252 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~14 ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.242 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~13 ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.208 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~12 ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.198 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~6  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~5  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~4  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~7  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~1  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~0  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~3  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~2  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[2] ; SIPO:comb_6|out[0]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 1.110 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~6  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~5  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~4  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~7  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~1  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~0  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~3  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~2  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[2]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.351 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[1]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.350 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[2]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.325 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[1]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.324 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~8  ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.911 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~15 ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.866 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~9  ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.854 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_6|out[3]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.785 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[1]       ; SIPO:comb_11|out[2]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[0]       ; SIPO:comb_11|out[1]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[2]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.150 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[1]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.149 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~9  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~8  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~11 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~10 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~13 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~12 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~15 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~14 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~13 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~12 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~15 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~14 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_6|out[1]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.648 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_6|out[2]        ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.642 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[2]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.014 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[2]   ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.630 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[1]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.013 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[0]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~9  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~8  ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~11 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~10 ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[0]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.974 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|b[2]   ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[1]   ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[0]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.799 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.707 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.699 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.668 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[0]       ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.663 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.492 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[0] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.439 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.432 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[1] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.406 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                        ; None                      ; 2.230 ns                ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'pswdin[3]'                                                                                                                                                                                                    ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                      ; To                        ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.159 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~4  ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.816 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~7  ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.803 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~5  ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.781 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[0] ; SIPO:comb_6|out[0]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.646 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~0  ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.643 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~3  ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.634 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~1  ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.606 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[1] ; SIPO:comb_6|out[0]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.570 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[3] ; SIPO:comb_6|out[0]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.484 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~2  ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.430 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~6  ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.355 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~11 ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.252 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~14 ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.242 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~13 ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.208 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~12 ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.198 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~6  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~5  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~4  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~7  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~1  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~0  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~3  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~2  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[2] ; SIPO:comb_6|out[0]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 1.110 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~6  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~5  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~4  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~7  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~1  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~0  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~3  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~2  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[2]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.351 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[1]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.350 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[2]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.325 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[1]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.324 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~8  ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.911 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~15 ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.866 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~9  ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.854 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_6|out[3]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.785 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[1]       ; SIPO:comb_11|out[2]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[0]       ; SIPO:comb_11|out[1]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[2]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.150 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[1]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.149 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~9  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~8  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~11 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~10 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~13 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~12 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~15 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~14 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~13 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~12 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~15 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~14 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_6|out[1]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.648 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_6|out[2]        ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.642 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[2]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.014 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[2]   ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.630 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[1]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.013 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[0]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~9  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~8  ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~11 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~10 ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[0]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.974 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|b[2]   ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[1]   ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[0]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.799 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.707 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.699 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.668 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[0]       ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.663 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.492 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[0] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.439 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.432 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[1] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.406 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                        ; None                      ; 2.230 ns                ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'pswdin[0]'                                                                                                                                                                                                    ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                      ; To                        ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.159 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~4  ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.816 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~7  ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.803 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~5  ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.781 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[0] ; SIPO:comb_6|out[0]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.646 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~0  ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.643 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~3  ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.634 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~1  ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.606 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[1] ; SIPO:comb_6|out[0]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.570 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[3] ; SIPO:comb_6|out[0]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.484 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~2  ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.430 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~6  ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.355 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~11 ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.252 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~14 ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.242 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~13 ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.208 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~12 ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.198 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~6  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~5  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~4  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~7  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~1  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~0  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~3  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~2  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[2] ; SIPO:comb_6|out[0]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 1.110 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~6  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~5  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~4  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~7  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~1  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~0  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~3  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~2  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[2]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.351 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[1]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.350 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[2]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.325 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[1]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.324 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~8  ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.911 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~15 ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.866 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~9  ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.854 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_6|out[3]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.785 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[1]       ; SIPO:comb_11|out[2]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[0]       ; SIPO:comb_11|out[1]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[2]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.150 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[1]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.149 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~9  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~8  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~11 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~10 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~13 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~12 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~15 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~14 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~13 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~12 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~15 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~14 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_6|out[1]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.648 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_6|out[2]        ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.642 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[2]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.014 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[2]   ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.630 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[1]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.013 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[0]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~9  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~8  ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~11 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~10 ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[0]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.974 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|b[2]   ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[1]   ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[0]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.799 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.707 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.699 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.668 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[0]       ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.663 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.492 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[0] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.439 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.432 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[1] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.406 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                        ; None                      ; 2.230 ns                ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'pswdin[1]'                                                                                                                                                                                                    ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                      ; To                        ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~10 ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.159 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~4  ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.816 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~7  ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.803 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~5  ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.781 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[0] ; SIPO:comb_6|out[0]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.646 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~0  ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.643 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~3  ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.634 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~1  ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.606 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[1] ; SIPO:comb_6|out[0]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.570 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[3] ; SIPO:comb_6|out[0]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.484 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~2  ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.430 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~6  ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.355 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~11 ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.252 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~14 ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.242 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~13 ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.208 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~12 ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.198 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~6  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~5  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~4  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~7  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.412 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~1  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~0  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~3  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~2  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.408 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|out[2] ; SIPO:comb_6|out[0]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 1.110 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~6  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~5  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~4  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~7  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.349 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~1  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~0  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~3  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~2  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.278 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[2]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.351 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[1]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.350 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[2]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.325 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[1]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.324 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~8  ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.911 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~15 ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.866 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|ste~9  ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.854 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_6|out[3]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.785 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[1]       ; SIPO:comb_11|out[2]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_11|out[0]       ; SIPO:comb_11|out[1]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.623 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[2]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.150 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[1]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.149 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~9  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~8  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~11 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~10 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.033 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~13 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~12 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~15 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|ste~14 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.029 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~13 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~12 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~15 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~14 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.967 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_6|out[1]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.648 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_6|out[2]        ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.642 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[2]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.014 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[2]   ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.630 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[1]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.013 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[3]        ; SIPO:comb_11|out[0]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~9  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~8  ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~11 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|ste~10 ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.904 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[1]        ; SIPO:comb_11|out[0]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.974 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|b[2]   ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|b[1]   ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 0.454 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[2]        ; SIPO:comb_11|out[0]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.799 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.707 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.699 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.668 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; SIPO:comb_6|out[0]        ; SIPO:comb_11|out[0]       ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.663 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[2]   ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.492 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[0] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.439 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.432 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[1] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.406 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; datastorage:comb_4|b[1]   ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                        ; None                      ; 2.230 ns                ;
++-------+------------------------------------------------+---------------------------+---------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'pswdin[2]'                                                                                                                                                                                      ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                    ; To                        ; From Clock ; To Clock  ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[1] ; datastorage:comb_4|out[2] ; pswdin[2]  ; pswdin[2] ; None                       ; None                       ; 1.871 ns                 ;
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[2] ; datastorage:comb_4|out[3] ; pswdin[2]  ; pswdin[2] ; None                       ; None                       ; 2.125 ns                 ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'pswdin[3]'                                                                                                                                                                                      ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                    ; To                        ; From Clock ; To Clock  ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[1] ; datastorage:comb_4|out[2] ; pswdin[3]  ; pswdin[3] ; None                       ; None                       ; 1.871 ns                 ;
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[2] ; datastorage:comb_4|out[3] ; pswdin[3]  ; pswdin[3] ; None                       ; None                       ; 2.125 ns                 ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'pswdin[0]'                                                                                                                                                                                      ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                    ; To                        ; From Clock ; To Clock  ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[1] ; datastorage:comb_4|out[2] ; pswdin[0]  ; pswdin[0] ; None                       ; None                       ; 1.871 ns                 ;
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[2] ; datastorage:comb_4|out[3] ; pswdin[0]  ; pswdin[0] ; None                       ; None                       ; 2.125 ns                 ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'pswdin[1]'                                                                                                                                                                                      ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                    ; To                        ; From Clock ; To Clock  ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[1] ; datastorage:comb_4|out[2] ; pswdin[1]  ; pswdin[1] ; None                       ; None                       ; 1.871 ns                 ;
+; Not operational: Clock Skew > Data Delay ; datastorage:comb_4|b[2] ; datastorage:comb_4|out[3] ; pswdin[1]  ; pswdin[1] ; None                       ; None                       ; 2.125 ns                 ;
++------------------------------------------+-------------------------+---------------------------+------------+-----------+----------------------------+----------------------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; tsu                                                                                   ;
++-------+--------------+------------+-----------+---------------------------+-----------+
+; Slack ; Required tsu ; Actual tsu ; From      ; To                        ; To Clock  ;
++-------+--------------+------------+-----------+---------------------------+-----------+
+; N/A   ; None         ; 2.821 ns   ; rw        ; datastorage:comb_4|ste~6  ; pswdin[3] ;
+; N/A   ; None         ; 2.821 ns   ; rw        ; datastorage:comb_4|ste~5  ; pswdin[3] ;
+; N/A   ; None         ; 2.821 ns   ; rw        ; datastorage:comb_4|ste~4  ; pswdin[3] ;
+; N/A   ; None         ; 2.821 ns   ; rw        ; datastorage:comb_4|ste~7  ; pswdin[3] ;
+; N/A   ; None         ; 2.814 ns   ; rw        ; datastorage:comb_4|ste~1  ; pswdin[3] ;
+; N/A   ; None         ; 2.814 ns   ; rw        ; datastorage:comb_4|ste~0  ; pswdin[3] ;
+; N/A   ; None         ; 2.814 ns   ; rw        ; datastorage:comb_4|ste~3  ; pswdin[3] ;
+; N/A   ; None         ; 2.814 ns   ; rw        ; datastorage:comb_4|ste~2  ; pswdin[3] ;
+; N/A   ; None         ; 2.732 ns   ; rw        ; datastorage:comb_4|ste~6  ; pswdin[1] ;
+; N/A   ; None         ; 2.732 ns   ; rw        ; datastorage:comb_4|ste~5  ; pswdin[1] ;
+; N/A   ; None         ; 2.732 ns   ; rw        ; datastorage:comb_4|ste~4  ; pswdin[1] ;
+; N/A   ; None         ; 2.732 ns   ; rw        ; datastorage:comb_4|ste~7  ; pswdin[1] ;
+; N/A   ; None         ; 2.725 ns   ; rw        ; datastorage:comb_4|ste~1  ; pswdin[1] ;
+; N/A   ; None         ; 2.725 ns   ; rw        ; datastorage:comb_4|ste~0  ; pswdin[1] ;
+; N/A   ; None         ; 2.725 ns   ; rw        ; datastorage:comb_4|ste~3  ; pswdin[1] ;
+; N/A   ; None         ; 2.725 ns   ; rw        ; datastorage:comb_4|ste~2  ; pswdin[1] ;
+; N/A   ; None         ; 2.676 ns   ; rw        ; datastorage:comb_4|ste~6  ; pswdin[0] ;
+; N/A   ; None         ; 2.676 ns   ; rw        ; datastorage:comb_4|ste~5  ; pswdin[0] ;
+; N/A   ; None         ; 2.676 ns   ; rw        ; datastorage:comb_4|ste~4  ; pswdin[0] ;
+; N/A   ; None         ; 2.676 ns   ; rw        ; datastorage:comb_4|ste~7  ; pswdin[0] ;
+; N/A   ; None         ; 2.669 ns   ; rw        ; datastorage:comb_4|ste~1  ; pswdin[0] ;
+; N/A   ; None         ; 2.669 ns   ; rw        ; datastorage:comb_4|ste~0  ; pswdin[0] ;
+; N/A   ; None         ; 2.669 ns   ; rw        ; datastorage:comb_4|ste~3  ; pswdin[0] ;
+; N/A   ; None         ; 2.669 ns   ; rw        ; datastorage:comb_4|ste~2  ; pswdin[0] ;
+; N/A   ; None         ; 2.630 ns   ; rw        ; datastorage:comb_4|ste~6  ; pswdin[2] ;
+; N/A   ; None         ; 2.630 ns   ; rw        ; datastorage:comb_4|ste~5  ; pswdin[2] ;
+; N/A   ; None         ; 2.630 ns   ; rw        ; datastorage:comb_4|ste~4  ; pswdin[2] ;
+; N/A   ; None         ; 2.630 ns   ; rw        ; datastorage:comb_4|ste~7  ; pswdin[2] ;
+; N/A   ; None         ; 2.623 ns   ; rw        ; datastorage:comb_4|ste~1  ; pswdin[2] ;
+; N/A   ; None         ; 2.623 ns   ; rw        ; datastorage:comb_4|ste~0  ; pswdin[2] ;
+; N/A   ; None         ; 2.623 ns   ; rw        ; datastorage:comb_4|ste~3  ; pswdin[2] ;
+; N/A   ; None         ; 2.623 ns   ; rw        ; datastorage:comb_4|ste~2  ; pswdin[2] ;
+; N/A   ; None         ; 2.434 ns   ; rw        ; datastorage:comb_4|ste~13 ; pswdin[3] ;
+; N/A   ; None         ; 2.434 ns   ; rw        ; datastorage:comb_4|ste~12 ; pswdin[3] ;
+; N/A   ; None         ; 2.434 ns   ; rw        ; datastorage:comb_4|ste~15 ; pswdin[3] ;
+; N/A   ; None         ; 2.434 ns   ; rw        ; datastorage:comb_4|ste~14 ; pswdin[3] ;
+; N/A   ; None         ; 2.433 ns   ; rw        ; datastorage:comb_4|ste~9  ; pswdin[3] ;
+; N/A   ; None         ; 2.433 ns   ; rw        ; datastorage:comb_4|ste~8  ; pswdin[3] ;
+; N/A   ; None         ; 2.433 ns   ; rw        ; datastorage:comb_4|ste~11 ; pswdin[3] ;
+; N/A   ; None         ; 2.433 ns   ; rw        ; datastorage:comb_4|ste~10 ; pswdin[3] ;
+; N/A   ; None         ; 2.345 ns   ; rw        ; datastorage:comb_4|ste~13 ; pswdin[1] ;
+; N/A   ; None         ; 2.345 ns   ; rw        ; datastorage:comb_4|ste~12 ; pswdin[1] ;
+; N/A   ; None         ; 2.345 ns   ; rw        ; datastorage:comb_4|ste~15 ; pswdin[1] ;
+; N/A   ; None         ; 2.345 ns   ; rw        ; datastorage:comb_4|ste~14 ; pswdin[1] ;
+; N/A   ; None         ; 2.344 ns   ; rw        ; datastorage:comb_4|ste~9  ; pswdin[1] ;
+; N/A   ; None         ; 2.344 ns   ; rw        ; datastorage:comb_4|ste~8  ; pswdin[1] ;
+; N/A   ; None         ; 2.344 ns   ; rw        ; datastorage:comb_4|ste~11 ; pswdin[1] ;
+; N/A   ; None         ; 2.344 ns   ; rw        ; datastorage:comb_4|ste~10 ; pswdin[1] ;
+; N/A   ; None         ; 2.289 ns   ; rw        ; datastorage:comb_4|ste~13 ; pswdin[0] ;
+; N/A   ; None         ; 2.289 ns   ; rw        ; datastorage:comb_4|ste~12 ; pswdin[0] ;
+; N/A   ; None         ; 2.289 ns   ; rw        ; datastorage:comb_4|ste~15 ; pswdin[0] ;
+; N/A   ; None         ; 2.289 ns   ; rw        ; datastorage:comb_4|ste~14 ; pswdin[0] ;
+; N/A   ; None         ; 2.288 ns   ; rw        ; datastorage:comb_4|ste~9  ; pswdin[0] ;
+; N/A   ; None         ; 2.288 ns   ; rw        ; datastorage:comb_4|ste~8  ; pswdin[0] ;
+; N/A   ; None         ; 2.288 ns   ; rw        ; datastorage:comb_4|ste~11 ; pswdin[0] ;
+; N/A   ; None         ; 2.288 ns   ; rw        ; datastorage:comb_4|ste~10 ; pswdin[0] ;
+; N/A   ; None         ; 2.243 ns   ; rw        ; datastorage:comb_4|ste~13 ; pswdin[2] ;
+; N/A   ; None         ; 2.243 ns   ; rw        ; datastorage:comb_4|ste~12 ; pswdin[2] ;
+; N/A   ; None         ; 2.243 ns   ; rw        ; datastorage:comb_4|ste~15 ; pswdin[2] ;
+; N/A   ; None         ; 2.243 ns   ; rw        ; datastorage:comb_4|ste~14 ; pswdin[2] ;
+; N/A   ; None         ; 2.242 ns   ; rw        ; datastorage:comb_4|ste~9  ; pswdin[2] ;
+; N/A   ; None         ; 2.242 ns   ; rw        ; datastorage:comb_4|ste~8  ; pswdin[2] ;
+; N/A   ; None         ; 2.242 ns   ; rw        ; datastorage:comb_4|ste~11 ; pswdin[2] ;
+; N/A   ; None         ; 2.242 ns   ; rw        ; datastorage:comb_4|ste~10 ; pswdin[2] ;
+; N/A   ; None         ; 1.860 ns   ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A   ; None         ; 1.771 ns   ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A   ; None         ; 1.715 ns   ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A   ; None         ; 1.669 ns   ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A   ; None         ; 1.488 ns   ; rw        ; datastorage:comb_4|out[1] ; pswdin[3] ;
+; N/A   ; None         ; 1.488 ns   ; rw        ; datastorage:comb_4|out[0] ; pswdin[3] ;
+; N/A   ; None         ; 1.488 ns   ; rw        ; datastorage:comb_4|out[3] ; pswdin[3] ;
+; N/A   ; None         ; 1.488 ns   ; rw        ; datastorage:comb_4|out[2] ; pswdin[3] ;
+; N/A   ; None         ; 1.482 ns   ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A   ; None         ; 1.399 ns   ; rw        ; datastorage:comb_4|out[1] ; pswdin[1] ;
+; N/A   ; None         ; 1.399 ns   ; rw        ; datastorage:comb_4|out[0] ; pswdin[1] ;
+; N/A   ; None         ; 1.399 ns   ; rw        ; datastorage:comb_4|out[3] ; pswdin[1] ;
+; N/A   ; None         ; 1.399 ns   ; rw        ; datastorage:comb_4|out[2] ; pswdin[1] ;
+; N/A   ; None         ; 1.393 ns   ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A   ; None         ; 1.392 ns   ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A   ; None         ; 1.387 ns   ; rw        ; SIPO:comb_6|out[1]        ; pswdin[3] ;
+; N/A   ; None         ; 1.387 ns   ; rw        ; SIPO:comb_6|out[2]        ; pswdin[3] ;
+; N/A   ; None         ; 1.386 ns   ; rw        ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A   ; None         ; 1.343 ns   ; rw        ; datastorage:comb_4|out[1] ; pswdin[0] ;
+; N/A   ; None         ; 1.343 ns   ; rw        ; datastorage:comb_4|out[0] ; pswdin[0] ;
+; N/A   ; None         ; 1.343 ns   ; rw        ; datastorage:comb_4|out[3] ; pswdin[0] ;
+; N/A   ; None         ; 1.343 ns   ; rw        ; datastorage:comb_4|out[2] ; pswdin[0] ;
+; N/A   ; None         ; 1.337 ns   ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A   ; None         ; 1.321 ns   ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A   ; None         ; 1.303 ns   ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A   ; None         ; 1.298 ns   ; rw        ; SIPO:comb_6|out[1]        ; pswdin[1] ;
+; N/A   ; None         ; 1.298 ns   ; rw        ; SIPO:comb_6|out[2]        ; pswdin[1] ;
+; N/A   ; None         ; 1.297 ns   ; rw        ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A   ; None         ; 1.297 ns   ; rw        ; datastorage:comb_4|out[1] ; pswdin[2] ;
+; N/A   ; None         ; 1.297 ns   ; rw        ; datastorage:comb_4|out[0] ; pswdin[2] ;
+; N/A   ; None         ; 1.297 ns   ; rw        ; datastorage:comb_4|out[3] ; pswdin[2] ;
+; N/A   ; None         ; 1.297 ns   ; rw        ; datastorage:comb_4|out[2] ; pswdin[2] ;
+; N/A   ; None         ; 1.291 ns   ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A   ; None         ; 1.247 ns   ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A   ; None         ; 1.242 ns   ; rw        ; SIPO:comb_6|out[1]        ; pswdin[0] ;
+; N/A   ; None         ; 1.242 ns   ; rw        ; SIPO:comb_6|out[2]        ; pswdin[0] ;
+; N/A   ; None         ; 1.241 ns   ; rw        ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A   ; None         ; 1.232 ns   ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A   ; None         ; 1.201 ns   ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A   ; None         ; 1.196 ns   ; rw        ; SIPO:comb_6|out[1]        ; pswdin[2] ;
+; N/A   ; None         ; 1.196 ns   ; rw        ; SIPO:comb_6|out[2]        ; pswdin[2] ;
+; N/A   ; None         ; 1.195 ns   ; rw        ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A   ; None         ; 1.176 ns   ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A   ; None         ; 1.130 ns   ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A   ; None         ; 1.027 ns   ; rw        ; SIPO:comb_6|out[3]        ; pswdin[3] ;
+; N/A   ; None         ; 0.938 ns   ; rw        ; SIPO:comb_6|out[3]        ; pswdin[1] ;
+; N/A   ; None         ; 0.882 ns   ; rw        ; SIPO:comb_6|out[3]        ; pswdin[0] ;
+; N/A   ; None         ; 0.836 ns   ; rw        ; SIPO:comb_6|out[3]        ; pswdin[2] ;
+; N/A   ; None         ; 0.823 ns   ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[3] ;
+; N/A   ; None         ; 0.823 ns   ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[3] ;
+; N/A   ; None         ; 0.818 ns   ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[3] ;
+; N/A   ; None         ; 0.734 ns   ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[1] ;
+; N/A   ; None         ; 0.734 ns   ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[1] ;
+; N/A   ; None         ; 0.729 ns   ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[1] ;
+; N/A   ; None         ; 0.678 ns   ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[0] ;
+; N/A   ; None         ; 0.678 ns   ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[0] ;
+; N/A   ; None         ; 0.673 ns   ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[0] ;
+; N/A   ; None         ; 0.673 ns   ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[3] ;
+; N/A   ; None         ; 0.632 ns   ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[2] ;
+; N/A   ; None         ; 0.632 ns   ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[2] ;
+; N/A   ; None         ; 0.627 ns   ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[2] ;
+; N/A   ; None         ; 0.584 ns   ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[1] ;
+; N/A   ; None         ; 0.530 ns   ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[3] ;
+; N/A   ; None         ; 0.528 ns   ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[0] ;
+; N/A   ; None         ; 0.513 ns   ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[3] ;
+; N/A   ; None         ; 0.511 ns   ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[3] ;
+; N/A   ; None         ; 0.482 ns   ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[2] ;
+; N/A   ; None         ; 0.446 ns   ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[3] ;
+; N/A   ; None         ; 0.444 ns   ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[3] ;
+; N/A   ; None         ; 0.441 ns   ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[1] ;
+; N/A   ; None         ; 0.424 ns   ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[1] ;
+; N/A   ; None         ; 0.422 ns   ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[1] ;
+; N/A   ; None         ; 0.387 ns   ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[3] ;
+; N/A   ; None         ; 0.385 ns   ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[0] ;
+; N/A   ; None         ; 0.368 ns   ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[0] ;
+; N/A   ; None         ; 0.366 ns   ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[0] ;
+; N/A   ; None         ; 0.364 ns   ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[3] ;
+; N/A   ; None         ; 0.363 ns   ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[3] ;
+; N/A   ; None         ; 0.357 ns   ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[1] ;
+; N/A   ; None         ; 0.355 ns   ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[1] ;
+; N/A   ; None         ; 0.339 ns   ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[2] ;
+; N/A   ; None         ; 0.337 ns   ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[3] ;
+; N/A   ; None         ; 0.335 ns   ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[3] ;
+; N/A   ; None         ; 0.322 ns   ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[2] ;
+; N/A   ; None         ; 0.320 ns   ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[2] ;
+; N/A   ; None         ; 0.301 ns   ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[0] ;
+; N/A   ; None         ; 0.299 ns   ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[0] ;
+; N/A   ; None         ; 0.298 ns   ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[3] ;
+; N/A   ; None         ; 0.298 ns   ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[1] ;
+; N/A   ; None         ; 0.275 ns   ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[1] ;
+; N/A   ; None         ; 0.274 ns   ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[1] ;
+; N/A   ; None         ; 0.255 ns   ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[2] ;
+; N/A   ; None         ; 0.253 ns   ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[2] ;
+; N/A   ; None         ; 0.248 ns   ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[1] ;
+; N/A   ; None         ; 0.246 ns   ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[1] ;
+; N/A   ; None         ; 0.242 ns   ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[0] ;
+; N/A   ; None         ; 0.224 ns   ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[3] ;
+; N/A   ; None         ; 0.219 ns   ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[0] ;
+; N/A   ; None         ; 0.218 ns   ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[0] ;
+; N/A   ; None         ; 0.209 ns   ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[1] ;
+; N/A   ; None         ; 0.196 ns   ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[2] ;
+; N/A   ; None         ; 0.192 ns   ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[0] ;
+; N/A   ; None         ; 0.190 ns   ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[0] ;
+; N/A   ; None         ; 0.173 ns   ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[2] ;
+; N/A   ; None         ; 0.172 ns   ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[2] ;
+; N/A   ; None         ; 0.153 ns   ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[0] ;
+; N/A   ; None         ; 0.146 ns   ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[2] ;
+; N/A   ; None         ; 0.144 ns   ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[2] ;
+; N/A   ; None         ; 0.135 ns   ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[1] ;
+; N/A   ; None         ; 0.107 ns   ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[2] ;
+; N/A   ; None         ; 0.079 ns   ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[0] ;
+; N/A   ; None         ; 0.033 ns   ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[2] ;
+; N/A   ; None         ; -1.566 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[3] ;
+; N/A   ; None         ; -1.566 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[3] ;
+; N/A   ; None         ; -1.569 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[3] ;
+; N/A   ; None         ; -1.655 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[1] ;
+; N/A   ; None         ; -1.655 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[1] ;
+; N/A   ; None         ; -1.658 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[1] ;
+; N/A   ; None         ; -1.711 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[0] ;
+; N/A   ; None         ; -1.711 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[0] ;
+; N/A   ; None         ; -1.714 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[0] ;
+; N/A   ; None         ; -1.757 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[2] ;
+; N/A   ; None         ; -1.757 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[2] ;
+; N/A   ; None         ; -1.760 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[2] ;
++-------+--------------+------------+-----------+---------------------------+-----------+
+
+
++-------------------------------------------------------------------------------+
+; tco                                                                           ;
++-------+--------------+------------+---------------------+--------+------------+
+; Slack ; Required tco ; Actual tco ; From                ; To     ; From Clock ;
++-------+--------------+------------+---------------------+--------+------------+
+; N/A   ; None         ; 14.692 ns  ; SIPO:comb_6|out[3]  ; buzzer ; pswdin[2]  ;
+; N/A   ; None         ; 14.666 ns  ; SIPO:comb_6|out[1]  ; buzzer ; pswdin[2]  ;
+; N/A   ; None         ; 14.646 ns  ; SIPO:comb_6|out[3]  ; buzzer ; pswdin[0]  ;
+; N/A   ; None         ; 14.620 ns  ; SIPO:comb_6|out[1]  ; buzzer ; pswdin[0]  ;
+; N/A   ; None         ; 14.590 ns  ; SIPO:comb_6|out[3]  ; buzzer ; pswdin[1]  ;
+; N/A   ; None         ; 14.564 ns  ; SIPO:comb_6|out[1]  ; buzzer ; pswdin[1]  ;
+; N/A   ; None         ; 14.557 ns  ; SIPO:comb_11|out[2] ; buzzer ; pswdin[2]  ;
+; N/A   ; None         ; 14.511 ns  ; SIPO:comb_11|out[2] ; buzzer ; pswdin[0]  ;
+; N/A   ; None         ; 14.501 ns  ; SIPO:comb_6|out[3]  ; buzzer ; pswdin[3]  ;
+; N/A   ; None         ; 14.491 ns  ; SIPO:comb_6|out[2]  ; buzzer ; pswdin[2]  ;
+; N/A   ; None         ; 14.475 ns  ; SIPO:comb_6|out[1]  ; buzzer ; pswdin[3]  ;
+; N/A   ; None         ; 14.455 ns  ; SIPO:comb_11|out[2] ; buzzer ; pswdin[1]  ;
+; N/A   ; None         ; 14.445 ns  ; SIPO:comb_6|out[2]  ; buzzer ; pswdin[0]  ;
+; N/A   ; None         ; 14.389 ns  ; SIPO:comb_6|out[2]  ; buzzer ; pswdin[1]  ;
+; N/A   ; None         ; 14.387 ns  ; SIPO:comb_6|out[3]  ; lock   ; pswdin[2]  ;
+; N/A   ; None         ; 14.366 ns  ; SIPO:comb_11|out[2] ; buzzer ; pswdin[3]  ;
+; N/A   ; None         ; 14.361 ns  ; SIPO:comb_6|out[1]  ; lock   ; pswdin[2]  ;
+; N/A   ; None         ; 14.355 ns  ; SIPO:comb_6|out[0]  ; buzzer ; pswdin[2]  ;
+; N/A   ; None         ; 14.341 ns  ; SIPO:comb_6|out[3]  ; lock   ; pswdin[0]  ;
+; N/A   ; None         ; 14.315 ns  ; SIPO:comb_6|out[1]  ; lock   ; pswdin[0]  ;
+; N/A   ; None         ; 14.309 ns  ; SIPO:comb_6|out[0]  ; buzzer ; pswdin[0]  ;
+; N/A   ; None         ; 14.300 ns  ; SIPO:comb_6|out[2]  ; buzzer ; pswdin[3]  ;
+; N/A   ; None         ; 14.285 ns  ; SIPO:comb_6|out[3]  ; lock   ; pswdin[1]  ;
+; N/A   ; None         ; 14.259 ns  ; SIPO:comb_6|out[1]  ; lock   ; pswdin[1]  ;
+; N/A   ; None         ; 14.253 ns  ; SIPO:comb_6|out[0]  ; buzzer ; pswdin[1]  ;
+; N/A   ; None         ; 14.196 ns  ; SIPO:comb_6|out[3]  ; lock   ; pswdin[3]  ;
+; N/A   ; None         ; 14.186 ns  ; SIPO:comb_6|out[2]  ; lock   ; pswdin[2]  ;
+; N/A   ; None         ; 14.170 ns  ; SIPO:comb_6|out[1]  ; lock   ; pswdin[3]  ;
+; N/A   ; None         ; 14.164 ns  ; SIPO:comb_6|out[0]  ; buzzer ; pswdin[3]  ;
+; N/A   ; None         ; 14.140 ns  ; SIPO:comb_6|out[2]  ; lock   ; pswdin[0]  ;
+; N/A   ; None         ; 14.084 ns  ; SIPO:comb_6|out[2]  ; lock   ; pswdin[1]  ;
+; N/A   ; None         ; 14.050 ns  ; SIPO:comb_6|out[0]  ; lock   ; pswdin[2]  ;
+; N/A   ; None         ; 14.004 ns  ; SIPO:comb_6|out[0]  ; lock   ; pswdin[0]  ;
+; N/A   ; None         ; 13.995 ns  ; SIPO:comb_6|out[2]  ; lock   ; pswdin[3]  ;
+; N/A   ; None         ; 13.948 ns  ; SIPO:comb_6|out[0]  ; lock   ; pswdin[1]  ;
+; N/A   ; None         ; 13.859 ns  ; SIPO:comb_6|out[0]  ; lock   ; pswdin[3]  ;
++-------+--------------+------------+---------------------+--------+------------+
+
+
++---------------------------------------------------------------------------------------------+
+; th                                                                                          ;
++---------------+-------------+-----------+-----------+---------------------------+-----------+
+; Minimum Slack ; Required th ; Actual th ; From      ; To                        ; To Clock  ;
++---------------+-------------+-----------+-----------+---------------------------+-----------+
+; N/A           ; None        ; 2.163 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[2] ;
+; N/A           ; None        ; 2.160 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[2] ;
+; N/A           ; None        ; 2.160 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[2] ;
+; N/A           ; None        ; 2.117 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[0] ;
+; N/A           ; None        ; 2.114 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[0] ;
+; N/A           ; None        ; 2.114 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[0] ;
+; N/A           ; None        ; 2.061 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[1] ;
+; N/A           ; None        ; 2.058 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[1] ;
+; N/A           ; None        ; 2.058 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[1] ;
+; N/A           ; None        ; 1.972 ns  ; rw        ; SIPO:comb_11|out[1]       ; pswdin[3] ;
+; N/A           ; None        ; 1.969 ns  ; rw        ; SIPO:comb_11|out[2]       ; pswdin[3] ;
+; N/A           ; None        ; 1.969 ns  ; rw        ; SIPO:comb_11|out[0]       ; pswdin[3] ;
+; N/A           ; None        ; 0.215 ns  ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[2] ;
+; N/A           ; None        ; 0.169 ns  ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[0] ;
+; N/A           ; None        ; 0.141 ns  ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[2] ;
+; N/A           ; None        ; 0.113 ns  ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[1] ;
+; N/A           ; None        ; 0.104 ns  ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[2] ;
+; N/A           ; None        ; 0.102 ns  ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[2] ;
+; N/A           ; None        ; 0.095 ns  ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[0] ;
+; N/A           ; None        ; 0.076 ns  ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[2] ;
+; N/A           ; None        ; 0.075 ns  ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[2] ;
+; N/A           ; None        ; 0.058 ns  ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[0] ;
+; N/A           ; None        ; 0.056 ns  ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[0] ;
+; N/A           ; None        ; 0.052 ns  ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[2] ;
+; N/A           ; None        ; 0.039 ns  ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[1] ;
+; N/A           ; None        ; 0.030 ns  ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[0] ;
+; N/A           ; None        ; 0.029 ns  ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[0] ;
+; N/A           ; None        ; 0.024 ns  ; pswdin[1] ; datastorage:comb_4|ste~5  ; pswdin[3] ;
+; N/A           ; None        ; 0.006 ns  ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[0] ;
+; N/A           ; None        ; 0.002 ns  ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[1] ;
+; N/A           ; None        ; 0.000 ns  ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[1] ;
+; N/A           ; None        ; -0.005 ns ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[2] ;
+; N/A           ; None        ; -0.007 ns ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[2] ;
+; N/A           ; None        ; -0.026 ns ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[1] ;
+; N/A           ; None        ; -0.027 ns ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[1] ;
+; N/A           ; None        ; -0.050 ns ; pswdin[1] ; datastorage:comb_4|ste~1  ; pswdin[3] ;
+; N/A           ; None        ; -0.050 ns ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[1] ;
+; N/A           ; None        ; -0.051 ns ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[0] ;
+; N/A           ; None        ; -0.053 ns ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[0] ;
+; N/A           ; None        ; -0.072 ns ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[2] ;
+; N/A           ; None        ; -0.074 ns ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[2] ;
+; N/A           ; None        ; -0.087 ns ; pswdin[0] ; datastorage:comb_4|ste~0  ; pswdin[3] ;
+; N/A           ; None        ; -0.089 ns ; pswdin[0] ; datastorage:comb_4|ste~4  ; pswdin[3] ;
+; N/A           ; None        ; -0.091 ns ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[2] ;
+; N/A           ; None        ; -0.107 ns ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[1] ;
+; N/A           ; None        ; -0.109 ns ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[1] ;
+; N/A           ; None        ; -0.115 ns ; pswdin[1] ; datastorage:comb_4|ste~13 ; pswdin[3] ;
+; N/A           ; None        ; -0.116 ns ; pswdin[1] ; datastorage:comb_4|ste~9  ; pswdin[3] ;
+; N/A           ; None        ; -0.118 ns ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[0] ;
+; N/A           ; None        ; -0.120 ns ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[0] ;
+; N/A           ; None        ; -0.137 ns ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[0] ;
+; N/A           ; None        ; -0.139 ns ; pswdin[2] ; datastorage:comb_4|ste~6  ; pswdin[3] ;
+; N/A           ; None        ; -0.174 ns ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[1] ;
+; N/A           ; None        ; -0.176 ns ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[1] ;
+; N/A           ; None        ; -0.193 ns ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[1] ;
+; N/A           ; None        ; -0.196 ns ; pswdin[2] ; datastorage:comb_4|ste~14 ; pswdin[3] ;
+; N/A           ; None        ; -0.198 ns ; pswdin[2] ; datastorage:comb_4|ste~10 ; pswdin[3] ;
+; N/A           ; None        ; -0.234 ns ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[2] ;
+; N/A           ; None        ; -0.263 ns ; pswdin[0] ; datastorage:comb_4|ste~8  ; pswdin[3] ;
+; N/A           ; None        ; -0.265 ns ; pswdin[0] ; datastorage:comb_4|ste~12 ; pswdin[3] ;
+; N/A           ; None        ; -0.280 ns ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[0] ;
+; N/A           ; None        ; -0.282 ns ; pswdin[2] ; datastorage:comb_4|ste~2  ; pswdin[3] ;
+; N/A           ; None        ; -0.336 ns ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[1] ;
+; N/A           ; None        ; -0.379 ns ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[2] ;
+; N/A           ; None        ; -0.384 ns ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[2] ;
+; N/A           ; None        ; -0.384 ns ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[2] ;
+; N/A           ; None        ; -0.425 ns ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[0] ;
+; N/A           ; None        ; -0.425 ns ; pswdin[3] ; datastorage:comb_4|ste~7  ; pswdin[3] ;
+; N/A           ; None        ; -0.430 ns ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[0] ;
+; N/A           ; None        ; -0.430 ns ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[0] ;
+; N/A           ; None        ; -0.481 ns ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[1] ;
+; N/A           ; None        ; -0.486 ns ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[1] ;
+; N/A           ; None        ; -0.486 ns ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[1] ;
+; N/A           ; None        ; -0.570 ns ; pswdin[3] ; datastorage:comb_4|ste~3  ; pswdin[3] ;
+; N/A           ; None        ; -0.575 ns ; pswdin[3] ; datastorage:comb_4|ste~11 ; pswdin[3] ;
+; N/A           ; None        ; -0.575 ns ; pswdin[3] ; datastorage:comb_4|ste~15 ; pswdin[3] ;
+; N/A           ; None        ; -0.588 ns ; rw        ; SIPO:comb_6|out[3]        ; pswdin[2] ;
+; N/A           ; None        ; -0.634 ns ; rw        ; SIPO:comb_6|out[3]        ; pswdin[0] ;
+; N/A           ; None        ; -0.690 ns ; rw        ; SIPO:comb_6|out[3]        ; pswdin[1] ;
+; N/A           ; None        ; -0.779 ns ; rw        ; SIPO:comb_6|out[3]        ; pswdin[3] ;
+; N/A           ; None        ; -0.882 ns ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A           ; None        ; -0.928 ns ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A           ; None        ; -0.947 ns ; rw        ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A           ; None        ; -0.948 ns ; rw        ; SIPO:comb_6|out[1]        ; pswdin[2] ;
+; N/A           ; None        ; -0.948 ns ; rw        ; SIPO:comb_6|out[2]        ; pswdin[2] ;
+; N/A           ; None        ; -0.953 ns ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A           ; None        ; -0.984 ns ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A           ; None        ; -0.993 ns ; rw        ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A           ; None        ; -0.994 ns ; rw        ; SIPO:comb_6|out[1]        ; pswdin[0] ;
+; N/A           ; None        ; -0.994 ns ; rw        ; SIPO:comb_6|out[2]        ; pswdin[0] ;
+; N/A           ; None        ; -0.999 ns ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A           ; None        ; -1.043 ns ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A           ; None        ; -1.049 ns ; rw        ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A           ; None        ; -1.049 ns ; rw        ; datastorage:comb_4|out[1] ; pswdin[2] ;
+; N/A           ; None        ; -1.049 ns ; rw        ; datastorage:comb_4|out[0] ; pswdin[2] ;
+; N/A           ; None        ; -1.049 ns ; rw        ; datastorage:comb_4|out[3] ; pswdin[2] ;
+; N/A           ; None        ; -1.049 ns ; rw        ; datastorage:comb_4|out[2] ; pswdin[2] ;
+; N/A           ; None        ; -1.050 ns ; rw        ; SIPO:comb_6|out[1]        ; pswdin[1] ;
+; N/A           ; None        ; -1.050 ns ; rw        ; SIPO:comb_6|out[2]        ; pswdin[1] ;
+; N/A           ; None        ; -1.055 ns ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A           ; None        ; -1.073 ns ; pswdin[2] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A           ; None        ; -1.089 ns ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A           ; None        ; -1.095 ns ; rw        ; datastorage:comb_4|out[1] ; pswdin[0] ;
+; N/A           ; None        ; -1.095 ns ; rw        ; datastorage:comb_4|out[0] ; pswdin[0] ;
+; N/A           ; None        ; -1.095 ns ; rw        ; datastorage:comb_4|out[3] ; pswdin[0] ;
+; N/A           ; None        ; -1.095 ns ; rw        ; datastorage:comb_4|out[2] ; pswdin[0] ;
+; N/A           ; None        ; -1.138 ns ; rw        ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A           ; None        ; -1.139 ns ; rw        ; SIPO:comb_6|out[1]        ; pswdin[3] ;
+; N/A           ; None        ; -1.139 ns ; rw        ; SIPO:comb_6|out[2]        ; pswdin[3] ;
+; N/A           ; None        ; -1.144 ns ; pswdin[1] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A           ; None        ; -1.145 ns ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A           ; None        ; -1.151 ns ; rw        ; datastorage:comb_4|out[1] ; pswdin[1] ;
+; N/A           ; None        ; -1.151 ns ; rw        ; datastorage:comb_4|out[0] ; pswdin[1] ;
+; N/A           ; None        ; -1.151 ns ; rw        ; datastorage:comb_4|out[3] ; pswdin[1] ;
+; N/A           ; None        ; -1.151 ns ; rw        ; datastorage:comb_4|out[2] ; pswdin[1] ;
+; N/A           ; None        ; -1.234 ns ; pswdin[3] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A           ; None        ; -1.240 ns ; rw        ; datastorage:comb_4|out[1] ; pswdin[3] ;
+; N/A           ; None        ; -1.240 ns ; rw        ; datastorage:comb_4|out[0] ; pswdin[3] ;
+; N/A           ; None        ; -1.240 ns ; rw        ; datastorage:comb_4|out[3] ; pswdin[3] ;
+; N/A           ; None        ; -1.240 ns ; rw        ; datastorage:comb_4|out[2] ; pswdin[3] ;
+; N/A           ; None        ; -1.421 ns ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[2] ;
+; N/A           ; None        ; -1.467 ns ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[0] ;
+; N/A           ; None        ; -1.523 ns ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[1] ;
+; N/A           ; None        ; -1.612 ns ; pswdin[0] ; SIPO:comb_6|out[0]        ; pswdin[3] ;
+; N/A           ; None        ; -1.994 ns ; rw        ; datastorage:comb_4|ste~9  ; pswdin[2] ;
+; N/A           ; None        ; -1.994 ns ; rw        ; datastorage:comb_4|ste~8  ; pswdin[2] ;
+; N/A           ; None        ; -1.994 ns ; rw        ; datastorage:comb_4|ste~11 ; pswdin[2] ;
+; N/A           ; None        ; -1.994 ns ; rw        ; datastorage:comb_4|ste~10 ; pswdin[2] ;
+; N/A           ; None        ; -1.995 ns ; rw        ; datastorage:comb_4|ste~13 ; pswdin[2] ;
+; N/A           ; None        ; -1.995 ns ; rw        ; datastorage:comb_4|ste~12 ; pswdin[2] ;
+; N/A           ; None        ; -1.995 ns ; rw        ; datastorage:comb_4|ste~15 ; pswdin[2] ;
+; N/A           ; None        ; -1.995 ns ; rw        ; datastorage:comb_4|ste~14 ; pswdin[2] ;
+; N/A           ; None        ; -2.040 ns ; rw        ; datastorage:comb_4|ste~9  ; pswdin[0] ;
+; N/A           ; None        ; -2.040 ns ; rw        ; datastorage:comb_4|ste~8  ; pswdin[0] ;
+; N/A           ; None        ; -2.040 ns ; rw        ; datastorage:comb_4|ste~11 ; pswdin[0] ;
+; N/A           ; None        ; -2.040 ns ; rw        ; datastorage:comb_4|ste~10 ; pswdin[0] ;
+; N/A           ; None        ; -2.041 ns ; rw        ; datastorage:comb_4|ste~13 ; pswdin[0] ;
+; N/A           ; None        ; -2.041 ns ; rw        ; datastorage:comb_4|ste~12 ; pswdin[0] ;
+; N/A           ; None        ; -2.041 ns ; rw        ; datastorage:comb_4|ste~15 ; pswdin[0] ;
+; N/A           ; None        ; -2.041 ns ; rw        ; datastorage:comb_4|ste~14 ; pswdin[0] ;
+; N/A           ; None        ; -2.096 ns ; rw        ; datastorage:comb_4|ste~9  ; pswdin[1] ;
+; N/A           ; None        ; -2.096 ns ; rw        ; datastorage:comb_4|ste~8  ; pswdin[1] ;
+; N/A           ; None        ; -2.096 ns ; rw        ; datastorage:comb_4|ste~11 ; pswdin[1] ;
+; N/A           ; None        ; -2.096 ns ; rw        ; datastorage:comb_4|ste~10 ; pswdin[1] ;
+; N/A           ; None        ; -2.097 ns ; rw        ; datastorage:comb_4|ste~13 ; pswdin[1] ;
+; N/A           ; None        ; -2.097 ns ; rw        ; datastorage:comb_4|ste~12 ; pswdin[1] ;
+; N/A           ; None        ; -2.097 ns ; rw        ; datastorage:comb_4|ste~15 ; pswdin[1] ;
+; N/A           ; None        ; -2.097 ns ; rw        ; datastorage:comb_4|ste~14 ; pswdin[1] ;
+; N/A           ; None        ; -2.185 ns ; rw        ; datastorage:comb_4|ste~9  ; pswdin[3] ;
+; N/A           ; None        ; -2.185 ns ; rw        ; datastorage:comb_4|ste~8  ; pswdin[3] ;
+; N/A           ; None        ; -2.185 ns ; rw        ; datastorage:comb_4|ste~11 ; pswdin[3] ;
+; N/A           ; None        ; -2.185 ns ; rw        ; datastorage:comb_4|ste~10 ; pswdin[3] ;
+; N/A           ; None        ; -2.186 ns ; rw        ; datastorage:comb_4|ste~13 ; pswdin[3] ;
+; N/A           ; None        ; -2.186 ns ; rw        ; datastorage:comb_4|ste~12 ; pswdin[3] ;
+; N/A           ; None        ; -2.186 ns ; rw        ; datastorage:comb_4|ste~15 ; pswdin[3] ;
+; N/A           ; None        ; -2.186 ns ; rw        ; datastorage:comb_4|ste~14 ; pswdin[3] ;
+; N/A           ; None        ; -2.375 ns ; rw        ; datastorage:comb_4|ste~1  ; pswdin[2] ;
+; N/A           ; None        ; -2.375 ns ; rw        ; datastorage:comb_4|ste~0  ; pswdin[2] ;
+; N/A           ; None        ; -2.375 ns ; rw        ; datastorage:comb_4|ste~3  ; pswdin[2] ;
+; N/A           ; None        ; -2.375 ns ; rw        ; datastorage:comb_4|ste~2  ; pswdin[2] ;
+; N/A           ; None        ; -2.382 ns ; rw        ; datastorage:comb_4|ste~6  ; pswdin[2] ;
+; N/A           ; None        ; -2.382 ns ; rw        ; datastorage:comb_4|ste~5  ; pswdin[2] ;
+; N/A           ; None        ; -2.382 ns ; rw        ; datastorage:comb_4|ste~4  ; pswdin[2] ;
+; N/A           ; None        ; -2.382 ns ; rw        ; datastorage:comb_4|ste~7  ; pswdin[2] ;
+; N/A           ; None        ; -2.421 ns ; rw        ; datastorage:comb_4|ste~1  ; pswdin[0] ;
+; N/A           ; None        ; -2.421 ns ; rw        ; datastorage:comb_4|ste~0  ; pswdin[0] ;
+; N/A           ; None        ; -2.421 ns ; rw        ; datastorage:comb_4|ste~3  ; pswdin[0] ;
+; N/A           ; None        ; -2.421 ns ; rw        ; datastorage:comb_4|ste~2  ; pswdin[0] ;
+; N/A           ; None        ; -2.428 ns ; rw        ; datastorage:comb_4|ste~6  ; pswdin[0] ;
+; N/A           ; None        ; -2.428 ns ; rw        ; datastorage:comb_4|ste~5  ; pswdin[0] ;
+; N/A           ; None        ; -2.428 ns ; rw        ; datastorage:comb_4|ste~4  ; pswdin[0] ;
+; N/A           ; None        ; -2.428 ns ; rw        ; datastorage:comb_4|ste~7  ; pswdin[0] ;
+; N/A           ; None        ; -2.477 ns ; rw        ; datastorage:comb_4|ste~1  ; pswdin[1] ;
+; N/A           ; None        ; -2.477 ns ; rw        ; datastorage:comb_4|ste~0  ; pswdin[1] ;
+; N/A           ; None        ; -2.477 ns ; rw        ; datastorage:comb_4|ste~3  ; pswdin[1] ;
+; N/A           ; None        ; -2.477 ns ; rw        ; datastorage:comb_4|ste~2  ; pswdin[1] ;
+; N/A           ; None        ; -2.484 ns ; rw        ; datastorage:comb_4|ste~6  ; pswdin[1] ;
+; N/A           ; None        ; -2.484 ns ; rw        ; datastorage:comb_4|ste~5  ; pswdin[1] ;
+; N/A           ; None        ; -2.484 ns ; rw        ; datastorage:comb_4|ste~4  ; pswdin[1] ;
+; N/A           ; None        ; -2.484 ns ; rw        ; datastorage:comb_4|ste~7  ; pswdin[1] ;
+; N/A           ; None        ; -2.566 ns ; rw        ; datastorage:comb_4|ste~1  ; pswdin[3] ;
+; N/A           ; None        ; -2.566 ns ; rw        ; datastorage:comb_4|ste~0  ; pswdin[3] ;
+; N/A           ; None        ; -2.566 ns ; rw        ; datastorage:comb_4|ste~3  ; pswdin[3] ;
+; N/A           ; None        ; -2.566 ns ; rw        ; datastorage:comb_4|ste~2  ; pswdin[3] ;
+; N/A           ; None        ; -2.573 ns ; rw        ; datastorage:comb_4|ste~6  ; pswdin[3] ;
+; N/A           ; None        ; -2.573 ns ; rw        ; datastorage:comb_4|ste~5  ; pswdin[3] ;
+; N/A           ; None        ; -2.573 ns ; rw        ; datastorage:comb_4|ste~4  ; pswdin[3] ;
+; N/A           ; None        ; -2.573 ns ; rw        ; datastorage:comb_4|ste~7  ; pswdin[3] ;
++---------------+-------------+-----------+-----------+---------------------------+-----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Mon Jun 17 10:25:06 2019
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off finallock -c finallock --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "pswdin[2]" is an undefined clock
+    Info: Assuming node "pswdin[3]" is an undefined clock
+    Info: Assuming node "pswdin[0]" is an undefined clock
+    Info: Assuming node "pswdin[1]" is an undefined clock
+Warning: Found 4 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "comb" as buffer
+    Info: Detected ripple clock "datastorage:comb_4|b[1]" as buffer
+    Info: Detected ripple clock "datastorage:comb_4|b[2]" as buffer
+    Info: Detected gated clock "numpannel:comb_3|clkout" as buffer
+Info: Clock "pswdin[2]" Internal fmax is restricted to 405.02 MHz between source register "datastorage:comb_4|ste~10" and destination register "datastorage:comb_4|out[2]"
+    Info: fmax restricted to clock pin edge rate 2.469 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.159 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+            Info: 2: + IC(0.909 ns) + CELL(0.178 ns) = 1.087 ns; Loc. = LCCOMB_X20_Y18_N16; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~22'
+            Info: 3: + IC(0.798 ns) + CELL(0.178 ns) = 2.063 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+            Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 2.159 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 0.452 ns ( 20.94 % )
+            Info: Total interconnect delay = 1.707 ns ( 79.06 % )
+        Info: - Smallest clock skew is 0.001 ns
+            Info: + Shortest clock path from clock "pswdin[2]" to destination register is 6.777 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+                Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.194 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.777 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+                Info: Total cell delay = 1.634 ns ( 24.11 % )
+                Info: Total interconnect delay = 5.143 ns ( 75.89 % )
+            Info: - Longest clock path from clock "pswdin[2]" to source register is 6.776 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+                Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.194 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.776 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+                Info: Total cell delay = 1.634 ns ( 24.11 % )
+                Info: Total interconnect delay = 5.142 ns ( 75.89 % )
+        Info: + Micro clock to output delay of source is 0.277 ns
+        Info: + Micro setup delay of destination is -0.038 ns
+Info: Clock "pswdin[3]" Internal fmax is restricted to 405.02 MHz between source register "datastorage:comb_4|ste~10" and destination register "datastorage:comb_4|out[2]"
+    Info: fmax restricted to clock pin edge rate 2.469 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.159 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+            Info: 2: + IC(0.909 ns) + CELL(0.178 ns) = 1.087 ns; Loc. = LCCOMB_X20_Y18_N16; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~22'
+            Info: 3: + IC(0.798 ns) + CELL(0.178 ns) = 2.063 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+            Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 2.159 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 0.452 ns ( 20.94 % )
+            Info: Total interconnect delay = 1.707 ns ( 79.06 % )
+        Info: - Smallest clock skew is 0.001 ns
+            Info: + Shortest clock path from clock "pswdin[3]" to destination register is 6.586 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_AB10; Fanout = 6; CLK Node = 'pswdin[3]'
+                Info: 2: + IC(1.750 ns) + CELL(0.278 ns) = 2.891 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.003 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.586 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+                Info: Total cell delay = 1.743 ns ( 26.47 % )
+                Info: Total interconnect delay = 4.843 ns ( 73.53 % )
+            Info: - Longest clock path from clock "pswdin[3]" to source register is 6.585 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_AB10; Fanout = 6; CLK Node = 'pswdin[3]'
+                Info: 2: + IC(1.750 ns) + CELL(0.278 ns) = 2.891 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.003 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.585 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+                Info: Total cell delay = 1.743 ns ( 26.47 % )
+                Info: Total interconnect delay = 4.842 ns ( 73.53 % )
+        Info: + Micro clock to output delay of source is 0.277 ns
+        Info: + Micro setup delay of destination is -0.038 ns
+Info: Clock "pswdin[0]" Internal fmax is restricted to 405.02 MHz between source register "datastorage:comb_4|ste~10" and destination register "datastorage:comb_4|out[2]"
+    Info: fmax restricted to clock pin edge rate 2.469 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.159 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+            Info: 2: + IC(0.909 ns) + CELL(0.178 ns) = 1.087 ns; Loc. = LCCOMB_X20_Y18_N16; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~22'
+            Info: 3: + IC(0.798 ns) + CELL(0.178 ns) = 2.063 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+            Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 2.159 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 0.452 ns ( 20.94 % )
+            Info: Total interconnect delay = 1.707 ns ( 79.06 % )
+        Info: - Smallest clock skew is 0.001 ns
+            Info: + Shortest clock path from clock "pswdin[0]" to destination register is 6.731 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_J1; Fanout = 6; CLK Node = 'pswdin[0]'
+                Info: 2: + IC(1.651 ns) + CELL(0.521 ns) = 3.036 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.148 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.731 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+                Info: Total cell delay = 1.987 ns ( 29.52 % )
+                Info: Total interconnect delay = 4.744 ns ( 70.48 % )
+            Info: - Longest clock path from clock "pswdin[0]" to source register is 6.730 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_J1; Fanout = 6; CLK Node = 'pswdin[0]'
+                Info: 2: + IC(1.651 ns) + CELL(0.521 ns) = 3.036 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.148 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.730 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+                Info: Total cell delay = 1.987 ns ( 29.52 % )
+                Info: Total interconnect delay = 4.743 ns ( 70.48 % )
+        Info: + Micro clock to output delay of source is 0.277 ns
+        Info: + Micro setup delay of destination is -0.038 ns
+Info: Clock "pswdin[1]" Internal fmax is restricted to 405.02 MHz between source register "datastorage:comb_4|ste~10" and destination register "datastorage:comb_4|out[2]"
+    Info: fmax restricted to clock pin edge rate 2.469 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.159 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+            Info: 2: + IC(0.909 ns) + CELL(0.178 ns) = 1.087 ns; Loc. = LCCOMB_X20_Y18_N16; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~22'
+            Info: 3: + IC(0.798 ns) + CELL(0.178 ns) = 2.063 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+            Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 2.159 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 0.452 ns ( 20.94 % )
+            Info: Total interconnect delay = 1.707 ns ( 79.06 % )
+        Info: - Smallest clock skew is 0.001 ns
+            Info: + Shortest clock path from clock "pswdin[1]" to destination register is 6.675 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.823 ns) = 0.823 ns; Loc. = PIN_B10; Fanout = 6; CLK Node = 'pswdin[1]'
+                Info: 2: + IC(1.612 ns) + CELL(0.545 ns) = 2.980 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.092 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.675 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+                Info: Total cell delay = 1.970 ns ( 29.51 % )
+                Info: Total interconnect delay = 4.705 ns ( 70.49 % )
+            Info: - Longest clock path from clock "pswdin[1]" to source register is 6.674 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.823 ns) = 0.823 ns; Loc. = PIN_B10; Fanout = 6; CLK Node = 'pswdin[1]'
+                Info: 2: + IC(1.612 ns) + CELL(0.545 ns) = 2.980 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+                Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.092 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+                Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.674 ns; Loc. = LCFF_X20_Y17_N5; Fanout = 1; REG Node = 'datastorage:comb_4|ste~10'
+                Info: Total cell delay = 1.970 ns ( 29.52 % )
+                Info: Total interconnect delay = 4.704 ns ( 70.48 % )
+        Info: + Micro clock to output delay of source is 0.277 ns
+        Info: + Micro setup delay of destination is -0.038 ns
+Warning: Circuit may not operate. Detected 2 non-operational path(s) clocked by clock "pswdin[2]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "datastorage:comb_4|b[1]" and destination pin or register "datastorage:comb_4|out[2]" for clock "pswdin[2]" (Hold time is 436 ps)
+    Info: + Largest clock skew is 2.298 ns
+        Info: + Longest clock path from clock "pswdin[2]" to destination register is 6.777 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+            Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.194 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+            Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.777 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 1.634 ns ( 24.11 % )
+            Info: Total interconnect delay = 5.143 ns ( 75.89 % )
+        Info: - Shortest clock path from clock "pswdin[2]" to source register is 4.479 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+            Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(0.795 ns) + CELL(0.602 ns) = 4.479 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+            Info: Total cell delay = 1.634 ns ( 36.48 % )
+            Info: Total interconnect delay = 2.845 ns ( 63.52 % )
+    Info: - Micro clock to output delay of source is 0.277 ns
+    Info: - Shortest register to register delay is 1.871 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+        Info: 2: + IC(1.254 ns) + CELL(0.521 ns) = 1.775 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.871 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+        Info: Total cell delay = 0.617 ns ( 32.98 % )
+        Info: Total interconnect delay = 1.254 ns ( 67.02 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+Warning: Circuit may not operate. Detected 2 non-operational path(s) clocked by clock "pswdin[3]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "datastorage:comb_4|b[1]" and destination pin or register "datastorage:comb_4|out[2]" for clock "pswdin[3]" (Hold time is 436 ps)
+    Info: + Largest clock skew is 2.298 ns
+        Info: + Longest clock path from clock "pswdin[3]" to destination register is 6.586 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_AB10; Fanout = 6; CLK Node = 'pswdin[3]'
+            Info: 2: + IC(1.750 ns) + CELL(0.278 ns) = 2.891 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.003 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+            Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.586 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 1.743 ns ( 26.47 % )
+            Info: Total interconnect delay = 4.843 ns ( 73.53 % )
+        Info: - Shortest clock path from clock "pswdin[3]" to source register is 4.288 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_AB10; Fanout = 6; CLK Node = 'pswdin[3]'
+            Info: 2: + IC(1.750 ns) + CELL(0.278 ns) = 2.891 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(0.795 ns) + CELL(0.602 ns) = 4.288 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+            Info: Total cell delay = 1.743 ns ( 40.65 % )
+            Info: Total interconnect delay = 2.545 ns ( 59.35 % )
+    Info: - Micro clock to output delay of source is 0.277 ns
+    Info: - Shortest register to register delay is 1.871 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+        Info: 2: + IC(1.254 ns) + CELL(0.521 ns) = 1.775 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.871 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+        Info: Total cell delay = 0.617 ns ( 32.98 % )
+        Info: Total interconnect delay = 1.254 ns ( 67.02 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+Warning: Circuit may not operate. Detected 2 non-operational path(s) clocked by clock "pswdin[0]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "datastorage:comb_4|b[1]" and destination pin or register "datastorage:comb_4|out[2]" for clock "pswdin[0]" (Hold time is 436 ps)
+    Info: + Largest clock skew is 2.298 ns
+        Info: + Longest clock path from clock "pswdin[0]" to destination register is 6.731 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_J1; Fanout = 6; CLK Node = 'pswdin[0]'
+            Info: 2: + IC(1.651 ns) + CELL(0.521 ns) = 3.036 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.148 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+            Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.731 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 1.987 ns ( 29.52 % )
+            Info: Total interconnect delay = 4.744 ns ( 70.48 % )
+        Info: - Shortest clock path from clock "pswdin[0]" to source register is 4.433 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_J1; Fanout = 6; CLK Node = 'pswdin[0]'
+            Info: 2: + IC(1.651 ns) + CELL(0.521 ns) = 3.036 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(0.795 ns) + CELL(0.602 ns) = 4.433 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+            Info: Total cell delay = 1.987 ns ( 44.82 % )
+            Info: Total interconnect delay = 2.446 ns ( 55.18 % )
+    Info: - Micro clock to output delay of source is 0.277 ns
+    Info: - Shortest register to register delay is 1.871 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+        Info: 2: + IC(1.254 ns) + CELL(0.521 ns) = 1.775 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.871 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+        Info: Total cell delay = 0.617 ns ( 32.98 % )
+        Info: Total interconnect delay = 1.254 ns ( 67.02 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+Warning: Circuit may not operate. Detected 2 non-operational path(s) clocked by clock "pswdin[1]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "datastorage:comb_4|b[1]" and destination pin or register "datastorage:comb_4|out[2]" for clock "pswdin[1]" (Hold time is 436 ps)
+    Info: + Largest clock skew is 2.298 ns
+        Info: + Longest clock path from clock "pswdin[1]" to destination register is 6.675 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.823 ns) = 0.823 ns; Loc. = PIN_B10; Fanout = 6; CLK Node = 'pswdin[1]'
+            Info: 2: + IC(1.612 ns) + CELL(0.545 ns) = 2.980 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.092 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+            Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.675 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+            Info: Total cell delay = 1.970 ns ( 29.51 % )
+            Info: Total interconnect delay = 4.705 ns ( 70.49 % )
+        Info: - Shortest clock path from clock "pswdin[1]" to source register is 4.377 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.823 ns) = 0.823 ns; Loc. = PIN_B10; Fanout = 6; CLK Node = 'pswdin[1]'
+            Info: 2: + IC(1.612 ns) + CELL(0.545 ns) = 2.980 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+            Info: 3: + IC(0.795 ns) + CELL(0.602 ns) = 4.377 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+            Info: Total cell delay = 1.970 ns ( 45.01 % )
+            Info: Total interconnect delay = 2.407 ns ( 54.99 % )
+    Info: - Micro clock to output delay of source is 0.277 ns
+    Info: - Shortest register to register delay is 1.871 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+        Info: 2: + IC(1.254 ns) + CELL(0.521 ns) = 1.775 ns; Loc. = LCCOMB_X21_Y17_N18; Fanout = 1; COMB Node = 'datastorage:comb_4|ste~23'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.871 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 1; REG Node = 'datastorage:comb_4|out[2]'
+        Info: Total cell delay = 0.617 ns ( 32.98 % )
+        Info: Total interconnect delay = 1.254 ns ( 67.02 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+Info: tsu for register "datastorage:comb_4|ste~6" (data pin = "rw", clock pin = "pswdin[3]") is 2.821 ns
+    Info: + Longest pin to register delay is 9.440 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.844 ns) = 0.844 ns; Loc. = PIN_N4; Fanout = 15; PIN Node = 'rw'
+        Info: 2: + IC(6.557 ns) + CELL(0.455 ns) = 7.856 ns; Loc. = LCCOMB_X21_Y17_N4; Fanout = 4; COMB Node = 'datastorage:comb_4|ste~25'
+        Info: 3: + IC(0.826 ns) + CELL(0.758 ns) = 9.440 ns; Loc. = LCFF_X20_Y18_N9; Fanout = 1; REG Node = 'datastorage:comb_4|ste~6'
+        Info: Total cell delay = 2.057 ns ( 21.79 % )
+        Info: Total interconnect delay = 7.383 ns ( 78.21 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "pswdin[3]" to destination register is 6.581 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_AB10; Fanout = 6; CLK Node = 'pswdin[3]'
+        Info: 2: + IC(1.750 ns) + CELL(0.278 ns) = 2.891 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+        Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.003 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+        Info: 4: + IC(0.976 ns) + CELL(0.602 ns) = 6.581 ns; Loc. = LCFF_X20_Y18_N9; Fanout = 1; REG Node = 'datastorage:comb_4|ste~6'
+        Info: Total cell delay = 1.743 ns ( 26.49 % )
+        Info: Total interconnect delay = 4.838 ns ( 73.51 % )
+Info: tco from clock "pswdin[2]" to destination pin "buzzer" through register "SIPO:comb_6|out[3]" is 14.692 ns
+    Info: + Longest clock path from clock "pswdin[2]" to source register is 6.777 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+        Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+        Info: 3: + IC(2.112 ns) + CELL(0.000 ns) = 5.194 ns; Loc. = CLKCTRL_G8; Fanout = 24; COMB Node = 'numpannel:comb_3|clkout~clkctrl'
+        Info: 4: + IC(0.981 ns) + CELL(0.602 ns) = 6.777 ns; Loc. = LCFF_X21_Y17_N7; Fanout = 1; REG Node = 'SIPO:comb_6|out[3]'
+        Info: Total cell delay = 1.634 ns ( 24.11 % )
+        Info: Total interconnect delay = 5.143 ns ( 75.89 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 7.638 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y17_N7; Fanout = 1; REG Node = 'SIPO:comb_6|out[3]'
+        Info: 2: + IC(0.378 ns) + CELL(0.512 ns) = 0.890 ns; Loc. = LCCOMB_X21_Y17_N16; Fanout = 5; COMB Node = 'lock~0'
+        Info: 3: + IC(1.858 ns) + CELL(0.449 ns) = 3.197 ns; Loc. = LCCOMB_X36_Y10_N2; Fanout = 1; COMB Node = 'buzzer~0'
+        Info: 4: + IC(1.601 ns) + CELL(2.840 ns) = 7.638 ns; Loc. = PIN_R21; Fanout = 0; PIN Node = 'buzzer'
+        Info: Total cell delay = 3.801 ns ( 49.76 % )
+        Info: Total interconnect delay = 3.837 ns ( 50.24 % )
+Info: th for register "SIPO:comb_11|out[1]" (data pin = "rw", clock pin = "pswdin[2]") is 2.163 ns
+    Info: + Longest clock path from clock "pswdin[2]" to destination register is 9.315 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_J4; Fanout = 6; CLK Node = 'pswdin[2]'
+        Info: 2: + IC(2.050 ns) + CELL(0.178 ns) = 3.082 ns; Loc. = LCCOMB_X21_Y17_N0; Fanout = 3; COMB Node = 'numpannel:comb_3|clkout'
+        Info: 3: + IC(0.795 ns) + CELL(0.879 ns) = 4.756 ns; Loc. = LCFF_X19_Y18_N31; Fanout = 12; REG Node = 'datastorage:comb_4|b[1]'
+        Info: 4: + IC(0.597 ns) + CELL(0.319 ns) = 5.672 ns; Loc. = LCCOMB_X20_Y18_N22; Fanout = 1; COMB Node = 'comb'
+        Info: 5: + IC(2.048 ns) + CELL(0.000 ns) = 7.720 ns; Loc. = CLKCTRL_G1; Fanout = 3; COMB Node = 'comb~clkctrl'
+        Info: 6: + IC(0.993 ns) + CELL(0.602 ns) = 9.315 ns; Loc. = LCFF_X36_Y10_N29; Fanout = 1; REG Node = 'SIPO:comb_11|out[1]'
+        Info: Total cell delay = 2.832 ns ( 30.40 % )
+        Info: Total interconnect delay = 6.483 ns ( 69.60 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 7.438 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.844 ns) = 0.844 ns; Loc. = PIN_N4; Fanout = 15; PIN Node = 'rw'
+        Info: 2: + IC(6.176 ns) + CELL(0.322 ns) = 7.342 ns; Loc. = LCCOMB_X36_Y10_N28; Fanout = 1; COMB Node = 'SIPO:comb_11|out~1'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 7.438 ns; Loc. = LCFF_X36_Y10_N29; Fanout = 1; REG Node = 'SIPO:comb_11|out[1]'
+        Info: Total cell delay = 1.262 ns ( 16.97 % )
+        Info: Total interconnect delay = 6.176 ns ( 83.03 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 211 megabytes
+    Info: Processing ended: Mon Jun 17 10:25:06 2019
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+
