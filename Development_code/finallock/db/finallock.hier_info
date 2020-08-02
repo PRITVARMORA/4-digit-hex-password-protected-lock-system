@@ -1,0 +1,107 @@
+|finallock
+pswdin[0] => pswdin[0]~3.IN1
+pswdin[1] => pswdin[1]~2.IN1
+pswdin[2] => pswdin[2]~1.IN1
+pswdin[3] => pswdin[3]~0.IN1
+rw => rw~0.IN1
+lock <= lock~2.DB_MAX_OUTPUT_PORT_TYPE
+buzzer <= buzzer~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finallock|numpannel:comb_3
+passin[0] => clkout~0.IN0
+passin[0] => passout[0].DATAIN
+passin[1] => clkout~0.IN1
+passin[1] => passout[1].DATAIN
+passin[2] => clkout~1.IN1
+passin[2] => passout[2].DATAIN
+passin[3] => clkout~2.IN1
+passin[3] => passout[3].DATAIN
+clkout <= clkout~2.DB_MAX_OUTPUT_PORT_TYPE
+passout[0] <= passin[0].DB_MAX_OUTPUT_PORT_TYPE
+passout[1] <= passin[1].DB_MAX_OUTPUT_PORT_TYPE
+passout[2] <= passin[2].DB_MAX_OUTPUT_PORT_TYPE
+passout[3] <= passin[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finallock|datastorage:comb_4
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => ste.data_a[0].DATAIN
+in[0] => ste.DATAIN
+in[1] => ste.data_a[1].DATAIN
+in[1] => ste.DATAIN1
+in[2] => ste.data_a[2].DATAIN
+in[2] => ste.DATAIN2
+in[3] => ste.data_a[3].DATAIN
+in[3] => ste.DATAIN3
+clk => ste.we_a.CLK
+clk => ste.waddr_a[1].CLK
+clk => ste.waddr_a[0].CLK
+clk => ste.data_a[3].CLK
+clk => ste.data_a[2].CLK
+clk => ste.data_a[1].CLK
+clk => ste.data_a[0].CLK
+clk => b[1]~reg0.CLK
+clk => b[2]~reg0.CLK
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => ste.CLK0
+b[1] <= b[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= b[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rw => ste.we_a.DATAIN
+rw => out[2]~reg0.ENA
+rw => out[1]~reg0.ENA
+rw => out[0]~reg0.ENA
+rw => out[3]~reg0.ENA
+rw => ste.WE
+
+
+|finallock|comperetor:comb_5
+instr[0] => outcomp~0.IN0
+instr[1] => outcomp~1.IN0
+instr[2] => outcomp~3.IN0
+instr[3] => outcomp~5.IN0
+inuser[0] => outcomp~0.IN1
+inuser[1] => outcomp~1.IN1
+inuser[2] => outcomp~3.IN1
+inuser[3] => outcomp~5.IN1
+outcomp <= outcomp~6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|finallock|SIPO:comb_6
+in => out~3.DATAB
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+reset => out~0.OUTPUTSELECT
+reset => out~1.OUTPUTSELECT
+reset => out~2.OUTPUTSELECT
+reset => out~3.OUTPUTSELECT
+
+
+|finallock|SIPO:comb_11
+in => out~3.DATAB
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+reset => out~0.OUTPUTSELECT
+reset => out~1.OUTPUTSELECT
+reset => out~2.OUTPUTSELECT
+reset => out~3.OUTPUTSELECT
+
+

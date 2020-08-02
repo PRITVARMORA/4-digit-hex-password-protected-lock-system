@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="finallock">
+		<CBX_INST_ENTRY INSTANCE_NAME="|finallock|datastorage:comb_4|lpm_mux:ste_rtl_0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|finallock|datastorage:comb_4|lpm_mux:ste_rtl_1" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|finallock|datastorage:comb_4|lpm_mux:ste_rtl_2" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|finallock|datastorage:comb_4|lpm_mux:ste_rtl_3" CBX_FILE_NAME="mux_umc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
