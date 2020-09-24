@@ -6,5 +6,5 @@ During the circuit design 2 different optimization has been performed and it has
 
 # Folder: Development_code
   This folder contains the VHDL file of designing circuit tested on Altera Quartus.
-# Folder: Documentations 
-  This folder contains the explanatory documentation for the circuit design.
+# Folder: Documentations
+  This folder contains the explanatory documentation for the circuit design....
